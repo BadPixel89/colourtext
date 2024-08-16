@@ -1,4 +1,4 @@
-package colourtext
+package github.com/BadPixel89/colourtext
 
 import (
 	"log"
