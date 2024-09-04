@@ -27,13 +27,13 @@ const White = "\033[97m"
 
 const _PARAMETER_IS_INCORRECT = 87
 
-func EnableVirtualConsole(console windows.Handle, bits uint32) error {
+func EnableVirtualConsole(console windows.Handle) error {
 	var mode uint32
 	err := windows.GetConsoleMode(console, &mode)
 	if err != nil {
 		return err
 	}
-	err = windows.SetConsoleMode(console, windows.ENABLE_VIRTUAL_TERMINAL_PROCESSING)
+	err = windows.SetConsoleMode(console, mode|windows.ENABLE_VIRTUAL_TERMINAL_PROCESSING)
 	if err != nil {
 		return err
 	}
