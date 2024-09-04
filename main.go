@@ -2,6 +2,8 @@ package colourtext
 
 import (
 	"log"
+
+	"golang.org/x/sys/windows"
 )
 
 const Success = "[pass] "
@@ -22,6 +24,21 @@ const Magenta = "\033[35m"
 const Cyan = "\033[36m"
 const Gray = "\033[37m"
 const White = "\033[97m"
+
+const _PARAMETER_IS_INCORRECT = 87
+
+func EnableVirtualConsole(console windows.Handle, bits uint32) error {
+	var mode uint32
+	err := windows.GetConsoleMode(console, &mode)
+	if err != nil {
+		return err
+	}
+	err = windows.SetConsoleMode(console, windows.ENABLE_VIRTUAL_TERMINAL_PROCESSING)
+	if err != nil {
+		return err
+	}
+	return nil
+}
 
 func loglnWithColour(text string, colour string) {
 	log.Printf("%s%s%s\n", colour, text, Reset)
