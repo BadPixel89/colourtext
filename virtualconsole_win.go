@@ -3,8 +3,6 @@
 package colourtext
 
 import (
-	"runtime"
-
 	"golang.org/x/sys/windows"
 )
 
@@ -24,9 +22,6 @@ func EnableVirtualConsoleStdout() error {
 }
 
 func EnableVirtualConsoleStderr() error {
-	if runtime.GOOS == "linux" {
-		return nil
-	}
 	var mode uint32
 	err := windows.GetConsoleMode(windows.Stderr, &mode)
 	if err != nil {
