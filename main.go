@@ -23,12 +23,12 @@ const Cyan = "\033[36m"
 const Gray = "\033[37m"
 const White = "\033[97m"
 
-func loglnWithColour(text string, colour string) {
+func loglnWithColour(colour string, text string) {
 	log.Printf("%s%s%s\n", colour, text, Reset)
 }
 
 // use colortext.Red as the colourstring for example
-func PrintColor(text string, colour string) {
+func PrintColor(colour string, text string) {
 	loglnWithColour(text, colour)
 }
 
