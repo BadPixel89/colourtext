@@ -34,7 +34,7 @@ func PrintColor(text string, colour string) {
 
 // prints a new line before the data, intention is for printing structs in colour
 func PrintAny(colour string, v ...any) {
-	log.Printf(colour+"\n%+v"+Reset, v...)
+	log.Printf("%s%+v%s\n", colour, v, Reset)
 }
 
 // prepend [pass] print in green
