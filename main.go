@@ -26,15 +26,23 @@ const White = "\033[97m"
 func loglnWithColour(colour string, text string) {
 	log.Printf("%s%s%s\n", colour, text, Reset)
 }
+func logWithColour(colour string, text string) {
+	log.Printf("%s%s%s", colour, text, Reset)
+}
 
 // use colortext.Red as the colourstring for example
-func PrintColor(colour string, text string) {
+func PrintColour(colour string, text string) {
+	logWithColour(colour, text)
+}
+
+// use colortext.Red as the colourstring for example
+func PrintlnColour(colour string, text string) {
 	loglnWithColour(text, colour)
 }
 
 // prints a new line before the data, intention is for printing structs in colour
 func PrintAny(colour string, v ...any) {
-	log.Printf("%s%+v%s\n", colour, v, Reset)
+	log.Printf("%s%+v%s", colour, v, Reset)
 }
 
 // prepend [pass] print in green
