@@ -45,42 +45,42 @@ func PrintAny(colour string, v ...any) {
 	log.Printf("%s%+v%s", colour, v, Reset)
 }
 
-// prepend [pass] print in green
+// prepend [pass] print in green ends with newline
 func PrintSuccess(text string) {
 	loglnWithColour(Green, Success+text)
 }
 
-// prepend [fail] print in red
+// prepend [fail] print in red ends with newline
 func PrintFail(text string) {
 	loglnWithColour(Red, Fail+text)
 }
 
-// prepend [err ] print in red
+// prepend [err ] print in red ends with newline
 func PrintError(text string) {
 	loglnWithColour(Red, Error+text)
 }
 
-// prepend [info] print in cyan
+// prepend [info] print in cyan ends with newline
 func PrintInfo(text string) {
 	loglnWithColour(Cyan, Info+text)
 }
 
-// prepend [warn] print in yellow
+// prepend [warn] print in yellow ends with newline
 func PrintWarn(text string) {
 	loglnWithColour(Yellow, Warn+text)
 }
 
-// prepend [time] print in cyan
+// prepend [time] print in cyan ends with newline
 func PrintTime(text string) {
 	loglnWithColour(Cyan, Time+text)
 }
 
-// prepend [done] print in green
+// prepend [done] print in green ends with newline
 func PrintDone(text string) {
 	loglnWithColour(Green, Done+text)
 }
 
-// prepend [exit] print in red
+// prepend [exit] print in red ends with newline
 func PrintExit(text string) {
 	loglnWithColour(Red, Exit+text)
 }
