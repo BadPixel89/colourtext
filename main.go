@@ -39,40 +39,40 @@ func PrintAny(colour string, v ...any) {
 
 // prepend [pass] print in green
 func PrintSuccess(text string) {
-	loglnWithColour(Success+text, Green)
+	loglnWithColour(Green, Success+text)
 }
 
 // prepend [fail] print in red
 func PrintFail(text string) {
-	loglnWithColour(Fail+text, Red)
+	loglnWithColour(Red, Fail+text)
 }
 
 // prepend [err ] print in red
 func PrintError(text string) {
-	loglnWithColour(Error+text, Red)
+	loglnWithColour(Red, Error+text)
 }
 
 // prepend [info] print in cyan
 func PrintInfo(text string) {
-	loglnWithColour(Info+text, Cyan)
+	loglnWithColour(Cyan, Info+text)
 }
 
 // prepend [warn] print in yellow
 func PrintWarn(text string) {
-	loglnWithColour(Warn+text, Yellow)
+	loglnWithColour(Yellow, Warn+text)
 }
 
 // prepend [time] print in cyan
 func PrintTime(text string) {
-	loglnWithColour(Time+text, Cyan)
+	loglnWithColour(Cyan, Time+text)
 }
 
 // prepend [done] print in green
 func PrintDone(text string) {
-	loglnWithColour(Done+text, Green)
+	loglnWithColour(Green, Done+text)
 }
 
 // prepend [exit] print in red
 func PrintExit(text string) {
-	loglnWithColour(Exit+text, Red)
+	loglnWithColour(Red, Exit+text)
 }
