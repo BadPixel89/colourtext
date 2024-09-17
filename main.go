@@ -2,6 +2,7 @@ package colourtext
 
 import (
 	"log"
+	"os"
 )
 
 const Success = "[pass] "
@@ -24,10 +25,18 @@ const Gray = "\033[37m"
 const White = "\033[97m"
 
 func loglnWithColour(colour string, text string) {
-	log.Printf("%s%s%s\n", colour, text, Reset)
+	if !noColour() {
+		log.Printf("%s%s%s\n", colour, text, Reset)
+		return
+	}
+	log.Printf("%s\n", text)
 }
 func logWithColour(colour string, text string) {
-	log.Printf("%s%s%s", colour, text, Reset)
+	if !noColour() {
+		log.Printf("%s%s%s", colour, text, Reset)
+		return
+	}
+	log.Printf("%s", text)
 }
 
 // use colortext.Red as the colourstring for example
@@ -83,4 +92,8 @@ func PrintDone(text string) {
 // prepend [exit] print in red ends with newline
 func PrintExit(text string) {
 	loglnWithColour(Red, Exit+text)
+}
+
+func noColour() bool {
+	return os.Getenv("NO_COLOR") != ""
 }
