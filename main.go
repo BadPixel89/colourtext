@@ -46,7 +46,7 @@ func PrintColour(colour string, text string) {
 
 // use colortext.Red as the colourstring for example
 func PrintlnColour(colour string, text string) {
-	loglnWithColour(text, colour)
+	loglnWithColour(colour, text)
 }
 
 // prints a new line before the data, intention is for printing structs in colour
