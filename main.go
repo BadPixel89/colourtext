@@ -1,8 +1,7 @@
 package colourtext
 
 import (
-	"log"
-	"os"
+	"fmt"
 )
 
 const Success = "[pass] "
@@ -24,76 +23,56 @@ const Cyan = "\033[36m"
 const Gray = "\033[37m"
 const White = "\033[97m"
 
-func loglnWithColour(colour string, text string) {
-	if !noColour() {
-		log.Printf("%s%s%s\n", colour, text, Reset)
-		return
-	}
-	log.Printf("%s\n", text)
-}
-func logWithColour(colour string, text string) {
-	if !noColour() {
-		log.Printf("%s%s%s", colour, text, Reset)
-		return
-	}
-	log.Printf("%s", text)
+func printlnWithColour(colour string, text string) {
+	fmt.Printf("%s%s%s\n", colour, text, Reset)
 }
 
 // use colortext.Red as the colourstring for example
-func PrintColour(colour string, text string) {
-	logWithColour(colour, text)
-}
-
-// use colortext.Red as the colourstring for example
-func PrintlnColour(colour string, text string) {
-	loglnWithColour(colour, text)
+func PrintColor(colour string, text string) {
+	printlnWithColour(text, colour)
 }
 
 // prints a new line before the data, intention is for printing structs in colour
 func PrintAny(colour string, v ...any) {
-	log.Printf("%s%+v%s", colour, v, Reset)
+	fmt.Printf("%s%+v%s\n", colour, v, Reset)
 }
 
-// prepend [pass] print in green ends with newline
+// prepend [pass] print in green
 func PrintSuccess(text string) {
-	loglnWithColour(Green, Success+text)
+	printlnWithColour(Success+text, Green)
 }
 
-// prepend [fail] print in red ends with newline
+// prepend [fail] print in red
 func PrintFail(text string) {
-	loglnWithColour(Red, Fail+text)
+	printlnWithColour(Fail+text, Red)
 }
 
-// prepend [err ] print in red ends with newline
+// prepend [err ] print in red
 func PrintError(text string) {
-	loglnWithColour(Red, Error+text)
+	printlnWithColour(Error+text, Red)
 }
 
-// prepend [info] print in cyan ends with newline
+// prepend [info] print in cyan
 func PrintInfo(text string) {
-	loglnWithColour(Cyan, Info+text)
+	printlnWithColour(Info+text, Cyan)
 }
 
-// prepend [warn] print in yellow ends with newline
+// prepend [warn] print in yellow
 func PrintWarn(text string) {
-	loglnWithColour(Yellow, Warn+text)
+	printlnWithColour(Warn+text, Yellow)
 }
 
-// prepend [time] print in cyan ends with newline
+// prepend [time] print in cyan
 func PrintTime(text string) {
-	loglnWithColour(Cyan, Time+text)
+	printlnWithColour(Time+text, Cyan)
 }
 
-// prepend [done] print in green ends with newline
+// prepend [done] print in green
 func PrintDone(text string) {
-	loglnWithColour(Green, Done+text)
+	printlnWithColour(Done+text, Green)
 }
 
-// prepend [exit] print in red ends with newline
+// prepend [exit] print in red
 func PrintExit(text string) {
-	loglnWithColour(Red, Exit+text)
-}
-
-func noColour() bool {
-	return os.Getenv("NO_COLOR") != ""
+	printlnWithColour(Exit+text, Red)
 }
