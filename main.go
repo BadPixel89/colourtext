@@ -2,6 +2,7 @@ package colourtext
 
 import (
 	"fmt"
+	"os"
 )
 
 const Success = "[pass] "
@@ -24,11 +25,15 @@ const Gray = "\033[37m"
 const White = "\033[97m"
 
 func printlnWithColour(colour string, text string) {
-	fmt.Printf("%s%s%s\n", colour, text, Reset)
+	if !noColour() {
+		fmt.Printf("%s%s%s\n", colour, text, Reset)
+		return
+	}
+	fmt.Println(text)
 }
 
 // use colortext.Red as the colourstring for example
-func PrintColor(colour string, text string) {
+func PrintColour(colour string, text string) {
 	printlnWithColour(text, colour)
 }
 
@@ -75,4 +80,8 @@ func PrintDone(text string) {
 // prepend [exit] print in red
 func PrintExit(text string) {
 	printlnWithColour(Exit+text, Red)
+}
+
+func noColour() bool {
+	return os.Getenv("NO_COLOR") != ""
 }
