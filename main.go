@@ -26,7 +26,7 @@ const White = "\033[97m"
 
 func printlnWithColour(colour string, text string) {
 	if !noColour() {
-		fmt.Printf("%s%s%s\n", colour, text, Reset)
+		fmt.Fprintf(os.Stdout, "%s%s%s\n", colour, text, Reset)
 		return
 	}
 	fmt.Println(text)
