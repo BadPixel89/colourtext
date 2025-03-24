@@ -83,5 +83,5 @@ func PrintExit(text string) {
 }
 
 func noColour() bool {
-	return os.Getenv("NO_COLOR") != ""
+	return os.Getenv("NO_COLOR") != "" && os.Getenv("NO_COLOR") != "0"
 }
