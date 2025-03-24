@@ -46,42 +46,42 @@ func PrintAny(colour string, v ...any) {
 
 // prepend [pass] print in green, prints new line
 func PrintSuccess(text string) {
-	printlnWithColour(Success+text, Green)
+	PrintlnWithColour(Success+text, Green)
 }
 
 // prepend [fail] print in red, prints new line
 func PrintFail(text string) {
-	printlnWithColour(Fail+text, Red)
+	PrintlnWithColour(Fail+text, Red)
 }
 
 // prepend [err ] print in red, prints new line
 func PrintError(text string) {
-	printlnWithColour(Error+text, Red)
+	PrintlnWithColour(Error+text, Red)
 }
 
 // prepend [info] print in cyan, prints new line
 func PrintInfo(text string) {
-	printlnWithColour(Info+text, Cyan)
+	PrintlnWithColour(Info+text, Cyan)
 }
 
 // prepend [warn] print in yellow, prints new line
 func PrintWarn(text string) {
-	printlnWithColour(Warn+text, Yellow)
+	PrintlnWithColour(Warn+text, Yellow)
 }
 
 // prepend [time] print in cyan, prints new line
 func PrintTime(text string) {
-	printlnWithColour(Time+text, Cyan)
+	PrintlnWithColour(Time+text, Cyan)
 }
 
 // prepend [done] print in green, prints new line
 func PrintDone(text string) {
-	printlnWithColour(Done+text, Green)
+	PrintlnWithColour(Done+text, Green)
 }
 
 // prepend [exit] print in red, prints new line
 func PrintExit(text string) {
-	printlnWithColour(Exit+text, Red)
+	PrintlnWithColour(Exit+text, Red)
 }
 
 func noColour() bool {
