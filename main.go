@@ -24,17 +24,19 @@ const Cyan = "\033[36m"
 const Gray = "\033[37m"
 const White = "\033[97m"
 
-func printlnWithColour(colour string, text string) {
+func PrintlnWithColour(colour string, text string) {
 	if !noColour() {
-		fmt.Fprintf(os.Stdout, "%s%s%s\n", colour, text, Reset)
+		fmt.Printf("%s%s%s\n", colour, text, Reset)
 		return
 	}
 	fmt.Println(text)
 }
-
-// use colortext.Red as the colourstring for example
 func PrintColour(colour string, text string) {
-	printlnWithColour(text, colour)
+	if !noColour() {
+		fmt.Printf( "%s%s%s", colour, text, Reset)
+		return
+	}
+	fmt.Print(text)
 }
 
 // prints a new line before the data, intention is for printing structs in colour
@@ -42,42 +44,42 @@ func PrintAny(colour string, v ...any) {
 	fmt.Printf("%s%+v%s\n", colour, v, Reset)
 }
 
-// prepend [pass] print in green
+// prepend [pass] print in green, prints new line
 func PrintSuccess(text string) {
 	printlnWithColour(Success+text, Green)
 }
 
-// prepend [fail] print in red
+// prepend [fail] print in red, prints new line
 func PrintFail(text string) {
 	printlnWithColour(Fail+text, Red)
 }
 
-// prepend [err ] print in red
+// prepend [err ] print in red, prints new line
 func PrintError(text string) {
 	printlnWithColour(Error+text, Red)
 }
 
-// prepend [info] print in cyan
+// prepend [info] print in cyan, prints new line
 func PrintInfo(text string) {
 	printlnWithColour(Info+text, Cyan)
 }
 
-// prepend [warn] print in yellow
+// prepend [warn] print in yellow, prints new line
 func PrintWarn(text string) {
 	printlnWithColour(Warn+text, Yellow)
 }
 
-// prepend [time] print in cyan
+// prepend [time] print in cyan, prints new line
 func PrintTime(text string) {
 	printlnWithColour(Time+text, Cyan)
 }
 
-// prepend [done] print in green
+// prepend [done] print in green, prints new line
 func PrintDone(text string) {
 	printlnWithColour(Done+text, Green)
 }
 
-// prepend [exit] print in red
+// prepend [exit] print in red, prints new line
 func PrintExit(text string) {
 	printlnWithColour(Exit+text, Red)
 }
